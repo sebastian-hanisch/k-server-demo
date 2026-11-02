@@ -1,7 +1,6 @@
 # k-Server – wer fährt hin, wenn ein Einsatz kommt? – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-k-server-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-k-server-demo.streamlit.app/)**
 
 Sechstes Stück der Reihe **Online-Algorithmen** („Entscheiden ohne Kenntnis der Zukunft“) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“, Kind von [paging-demo](https://github.com/sebastian-hanisch/paging-demo) unter der Wurzel [ski-rental-demo](https://github.com/sebastian-hanisch/ski-rental-demo), neben [online-packen-demo](https://github.com/sebastian-hanisch/online-packen-demo), [online-allokation-demo](https://github.com/sebastian-hanisch/online-allokation-demo) und [sekretaerproblem-demo](https://github.com/sebastian-hanisch/sekretaerproblem-demo).
 Anders als die Fall-Demos (ein Anwendungsfall, mehrere Verfahren im Vergleich) zeigt diese Demo **ein** Konzept, **die Wettbewerbsanalyse mit Wegen unterschiedlicher Länge**, an einem wachsenden Beispiel: vom Gegenbeispiel, das die naheliegende Regel widerlegt, über den Gegner, der jedem Verfahren den Faktor k abverlangt, bis zu der Frage, was die Garantie im Alltag kostet.
@@ -113,4 +112,4 @@ Gebaut mit Streamlit, Plotly, NumPy und pandas.
 
 ---
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Online-Algorithmen: Entscheiden ohne Zukunft](https://sebastianhanisch.net/konzepte-online-algorithmen.html).
