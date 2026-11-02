@@ -81,7 +81,7 @@ with st.container(key="kopf"):
 st.markdown(
     """
 **Sechstes Stück der Reihe „Online-Algorithmen“** (Entscheiden ohne Kenntnis der Zukunft). Auf einem Autobahnabschnitt stehen **k Servicefahrzeuge**. Einsätze kommen nacheinander an Orten, die man vorher nicht kennt; zu jedem fährt **ein Fahrzeug hin und bleibt dort stehen**. Gemessen wird die gefahrene Strecke gegen eine Planung, die alle Einsätze im Voraus kannte.
-Die naheliegende Regel, **das nächste Fahrzeug fahren zu lassen**, ist im Alltag gut und hat doch **keine Garantie**. Wer eine Garantie will, muss anders fahren und zahlt dafür im Alltag mehr. Paging (Stück 2) ist der Sonderfall, in dem alle Wege gleich lang sind.
+Die naheliegende Regel, **das nächste Fahrzeug fahren zu lassen**, ist im Alltag gut und hat doch **keine Garantie**. Die Garantie von Double Coverage kostet im Alltag bis zu rund 60 % mehr als Greedy; die Arbeitsfunktion zahlt sie mit wenigen Prozent Aufpreis. Paging (Stück 2) ist der Sonderfall, in dem alle Wege gleich lang sind.
 
 Weiter unten: die **Kernfrage**, fünf Experimente (**Gegenbeispiel für Greedy**, **der Gegner**, **typische Muster**, **konzentriertes Gebiet**, **wann die Garantie gilt**), **🚧 Wo die Annahmen enden**, **⚠️ Annahmen, Grenzen und bekannte Probleme** und **📐 Mathematische Formulierung**.
 """
@@ -94,7 +94,7 @@ with st.expander("So funktioniert k-Server", expanded=True):
 2. **Die Referenz** kennt alle Einsätze vorher: das **Offline-Optimum**. Das Verhältnis der Kosten eines Verfahrens zum Optimum heißt **Quotient**; gesucht ist ein Verfahren, dessen Quotient immer klein bleibt.
 3. **Greedy** schickt das nächste Fahrzeug. **Double Coverage** schickt, wenn der Einsatz zwischen zwei Fahrzeugen liegt, **beide** gleich schnell los, bis eines ankommt; das hält die Fahrzeuge verteilt. Der **Arbeitsfunktionsalgorithmus** rechnet für jede mögliche Aufstellung die besten bisherigen Kosten und wählt die Bewegung, die Kosten und diese Rechnung zusammen minimiert.
 4. **Garantien:** Double Coverage ist auf der Geraden höchstens k-mal so teuer wie das Optimum, kein Verfahren ohne Zufall kann besser sein; die Arbeitsfunktion hat die Garantie 2k − 1 in jedem Raum. Beide gelten **bis auf eine additive Konstante** (die Anfahrt am Anfang). Greedy hat keine.
-5. **Der Preis der Garantie:** Wer sich gegen den schlimmsten Fall versichert, zahlt im Alltag mehr. Die Experimente zeigen beides.
+5. **Der Preis der Garantie:** Wer sich gegen den schlimmsten Fall versichert, zahlt bei Double Coverage im Alltag deutlich mehr, bei der Arbeitsfunktion nur wenig. Die Experimente zeigen beides.
         """
     )
 
@@ -223,7 +223,7 @@ with st.expander("⚠️ Annahmen, Grenzen und bekannte Probleme"):
         f"""
 **Annahmen.** Die Strecke hat die ganzzahligen Orte 0 bis {C.GRID}; die Fahrzeuge starten gleichmäßig verteilt (bei k = 1 in der Mitte, beim Gegner auf 0 bis k − 1). Kosten sind gefahrene Orte. Das **Offline-Optimum** wird aus der Arbeitsfunktion gerechnet (Minimum über alle Aufstellungen); die Tests prüfen es gegen zwei getrennte Verfahren (Zuordnung und dynamische Programmierung). Die Muster sind erfunden: gleichverteilt, drei Brennpunkte, eine Irrfahrt mit Schritten bis {C.SCHRITT_MAX}, Gebiete mit 2 bis 6 Orten und der Gegner.
 
-**Grenzen.** Die Demo ist nur an erfundenen Folgen geprüft. Die Garantien k und 2k − 1 gelten **bis auf eine additive Konstante**; deshalb kann der Quotient bei kurzen Folgen über k liegen (Experiment 5 zeigt es). Der Quotient am Anfang einer Folge schwankt stark. Greedy ist im Gegenbeispiel und im Gebiet **nicht beschränkt**, im Mittel über typische Muster aber das billigste Verfahren. Die Experimente laufen über feste Seeds und sind Mittelwerte.
+**Grenzen.** Die Demo ist nur an erfundenen Folgen geprüft. Die Garantien k und 2k − 1 gelten **bis auf eine additive Konstante**; deshalb kann der Quotient bei kurzen Folgen über k liegen (Experiment 5 zeigt es). Der Quotient am Anfang einer Folge schwankt stark. Greedy ist im Gegenbeispiel und im Gebiet **nicht beschränkt**, im Mittel über typische Muster aber ungefähr so billig wie die Arbeitsfunktion (Greedy 1 bis 5 % weniger). Die Experimente laufen über feste Seeds und sind Mittelwerte.
 
 **Bekannte Probleme und Unsicherheiten.** Double Coverage ist auf der Geraden definiert; die App behauptet nichts für andere Räume. Die Arbeitsfunktion gilt als wahrscheinlich k-kompetitiv, bewiesen ist 2k − 1. Beim Gegner hängt die Folge vom Verfahren ab; die Quotienten sind dort nicht zwischen den Verfahren vergleichbar, nur gegen k.
         """
@@ -254,7 +254,7 @@ und $\mathrm{OPT}_t = \min_X w_t(X)$. Der Algorithmus fährt mit dem Fahrzeug $x
 
 **Untere Schranke.** Auf $k + 1$ Orten fragt ein Gegner immer den unbesetzten an: jedes deterministische Verfahren zahlt in jedem Schritt mindestens 1, das Optimum höchstens einmal je $k$ Schritte, also Quotient $\ge k$.
 
-**Literatur (nicht nachgebaut; Auszüge per Websuche gesehen, Volltexte nicht eingesehen).** Die Garantie $2k-1$ der Arbeitsfunktion geht auf E. Koutsoupias und C. Papadimitriou zurück; die Faktor-$k$-Vermutung und Double Coverage auf der Geraden auf M. Manasse, L. McGeoch, D. Sleator und M. Chrobak u. a. N. Bansal u. a. (arXiv 1608.08527) behandeln Double Coverage bei zu wenig Fahrzeugen. Hier sind die Zahlen durch vollständiges Durchrechnen belegt, nicht bewiesen.
+**Literatur (nicht nachgebaut; Auszüge per Websuche gesehen, Volltexte nicht eingesehen).** Die Garantie $2k-1$ der Arbeitsfunktion geht auf E. Koutsoupias und C. Papadimitriou zurück; die Faktor-$k$-Vermutung und Double Coverage auf der Geraden auf M. Manasse, L. McGeoch, D. Sleator und M. Chrobak u. a. N. Bansal u. a. (arXiv 1608.08527) behandeln Double Coverage, wenn das Optimum weniger Fahrzeuge hat als das Verfahren ((h,k)-Server-Problem). Hier sind die Zahlen durch vollständiges Durchrechnen belegt, nicht bewiesen.
         """
     )
 

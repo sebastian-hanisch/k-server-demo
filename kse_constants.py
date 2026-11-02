@@ -54,10 +54,10 @@ PRESETS = {
     "Ein Fahrzeug (k = 1)": {"k": 1, "verfahren": "Double Coverage", "muster": "gleichverteilt", "t": 100, "seed": DEFAULT_SEED},
 }
 PRESET_HELP = {
-    "Klassisch (k = 3, gleichverteilt)": "Drei Fahrzeuge, Einsätze überall gleich wahrscheinlich: Greedy ist hier am billigsten, Double Coverage zahlt für seine Garantie.",
+    "Klassisch (k = 3, gleichverteilt)": "Drei Fahrzeuge, Einsätze überall gleich wahrscheinlich: Greedy und Arbeitsfunktion liegen dicht beieinander, Double Coverage zahlt für seine Garantie.",
     "Gegenbeispiel für Greedy": "Zwei Fahrzeuge an den Enden, alle Einsätze auf zwei Orten in der Mitte: Greedy bewegt immer dasselbe Fahrzeug, der Quotient wächst mit der Zahl der Einsätze.",
     "Gegner (k = 3)": "Der Gegner fragt immer den unbesetzten Ort an: Double Coverage erreicht genau den Quotienten k, nicht weniger.",
     "Gebiet mit 3 Orten": "Drei Orte, drei Fahrzeuge: das Optimum zahlt nach der Anfahrt nichts mehr, Greedy zahlt immer weiter.",
-    "Wandernd (Stau)": "Der Einsatzort wandert wie ein Stau; die Arbeitsfunktion ist hier nah am Optimum.",
+    "Wandernd (Stau)": "Der Einsatzort wandert wie ein Stau; die Arbeitsfunktion liegt 26 % über dem Optimum, Greedy 20 %.",
     "Ein Fahrzeug (k = 1)": "Bei einem Fahrzeug gibt es nichts zu entscheiden: alle drei Verfahren sind gleich und optimal.",
 }

@@ -181,7 +181,7 @@ def verdict_gegner(rows: list[dict]) -> tuple[str, str]:
     wf = ", ".join(f"{fmt(r['Arbeitsfunktion'])}" for r in rows)
     ks = ", ".join(str(r["k"]) for r in rows)
     gmax = max(r["Greedy"] for r in rows)
-    return "info", (f"Bei k = {ks} Fahrzeugen erreicht Double Coverage gegen den Gegner die Quotienten **{dc}** (genau k), die Arbeitsfunktion {wf} (ihre Garantie 2k − 1 wird nicht ausgereizt); "
+    return "info", (f"Bei k = {ks} Fahrzeugen erreicht Double Coverage gegen den Gegner die Quotienten **{dc}** (genau k), die Arbeitsfunktion {wf} (gegen diesen Gegner strebt sie auf k, ihre Garantie 2k − 1 wird hier nicht ausgereizt); "
                     f"Greedy kommt auf bis zu {fmt(gmax)}, denn es bewegt immer dasselbe Fahrzeug.")
 
 
@@ -192,7 +192,7 @@ def verdict_typisch(rows: list[dict]) -> tuple[str, str]:
     worst = max(rows, key=lambda r: r["mean"]["Double Coverage"] / r["mean"]["Greedy"])
     extra = (worst["mean"]["Double Coverage"] / worst["mean"]["Greedy"] - 1) * 100
     return "info", (f"Bei {first['Muster']}en Einsätzen zahlt Greedy im Mittel das {g:.2f}-Fache des Optimums, die Arbeitsfunktion das {w:.2f}-Fache, Double Coverage das {d:.2f}-Fache. "
-                    f"Im ungünstigsten Muster ({worst['Muster']}) kostet Double Coverage {extra:.0f} % mehr als Greedy: Die Garantie ist eine Versicherungsprämie.")
+                    f"Im ungünstigsten Muster ({worst['Muster']}) kostet Double Coverage {extra:.0f} % mehr als Greedy; die Arbeitsfunktion, die ebenfalls eine Garantie hat, liegt nur wenig über Greedy.")
 
 
 def verdict_gebiet(rows: list[dict]) -> tuple[str, str]:
